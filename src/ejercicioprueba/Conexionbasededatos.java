@@ -9,15 +9,15 @@ import java.sql.ResultSet;
 
 
 public class Conexionbasededatos {
-    Connection con;
-    Statement stmt;
-    ResultSet rs;
-    String usuario = "root";
-    String clave = "";
-    String url = "jdbc:mysql://localhost:3306/test01";
+    Connection con;//Coneccion
+    Statement stmt;//Obligatorio con coneccion
+    ResultSet rs;//imprimir en pantalla
+    String usuario = "root";//usuario... por defecto root
+    String clave = "";// clave de mysql
+    String url = "jdbc:mysql://localhost:3306/test01";//("jdbc:mysql://localhost/nombre base de datos");
     public Conexionbasededatos() {
         try {
-            Class.forName("org.gjt.mm.mysql.Driver");
+            Class.forName("org.gjt.mm.mysql.Driver");//esto hace que se ejecute al iniciar el programa
             con = DriverManager.getConnection(url, usuario, clave);
         } catch (Exception ex) {
             System.out.println("ERROR:" + ex.getMessage());

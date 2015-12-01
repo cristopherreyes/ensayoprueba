@@ -1,15 +1,11 @@
 
 package ejercicioprueba;
 
-
+import java.sql.Conexion;
 import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- *
- * @author ricardo
- */
 public class Usuario {
 
     private int usuario_id;
