@@ -2,7 +2,7 @@
 package ejercicioprueba;
 
 import java.sql.Connection;
-import java.sql.Statement;
+import java.sql.Statement;          //los 5 obligatorios
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -18,22 +18,22 @@ public class Conexionbasededatos {
     public Conexionbasededatos() {
         try {
             Class.forName("org.gjt.mm.mysql.Driver");//esto hace que se ejecute al iniciar el programa
-            con = DriverManager.getConnection(url, usuario, clave);
+            con = DriverManager.getConnection(url, usuario, clave);//Obligatorio para establecer coneccion
         } catch (Exception ex) {
-            System.out.println("ERROR:" + ex.getMessage());
+            System.out.println("ERROR:" + ex.getMessage());//mensaje de error en caso de fallo
         }
     }
     public void setEjecutar(String sql){
         try{
             stmt=con.createStatement();
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sql);//ejecutar accion
         }catch(Exception ex){
             System.out.println("EJECUTAR ERROR:"+ex.getMessage());
         }
     }
     public void cerrarConexion(){
         try {
-            con.close();
+            con.close();//close para cerrar la coneccion
         } catch (SQLException ex) {
             System.out.println("ERROR AL CERRAR:"+ex.getMessage());
         }
@@ -42,7 +42,7 @@ public class Conexionbasededatos {
     public void setSeleccion(String sql){
         try{
             stmt=con.createStatement();
-            rs=stmt.executeQuery(sql);
+            rs=stmt.executeQuery(sql);//imprimir en pantalla
         
         }catch(Exception ex)
         {
@@ -50,7 +50,7 @@ public class Conexionbasededatos {
         }
     }
     
-    public ResultSet getRs(){
+    public ResultSet getRs(){//retornar la impresion al main
         return rs;
     }
     
